@@ -10,7 +10,6 @@ router.post('/add/', (req, res) => {
       name: 'Paul',
       number: num + 1,
     };
-    console.log(demo);
     Client.create(demo, (err2, resinfo) => {
       res.send(resinfo);
     });
