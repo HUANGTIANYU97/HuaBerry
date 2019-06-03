@@ -15,4 +15,10 @@ router.post('/add/', (req, res) => {
     });
   });
 });
+
+router.get('/', (req, res) => {
+  Client.find(req.query, { _id: 0 }, (err, client) => {
+    res.send(client);
+  });
+});
 module.exports = router;
