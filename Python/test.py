@@ -36,6 +36,7 @@ while True:
 				test_back.get()
                                 if(test_back.getlen() < limit):
                                         test_back_post.add()
+					test_back.get()
                                         len = test_back.getlen()
                         else:
                                 while(grovepi.digitalRead(buttoninput) == 0):
