@@ -14,7 +14,7 @@ def on_message(client, userdata, msg):
 
 def on_connect(client, userdata, flags, rc):
   print("Connected with result code " + str(rc))
-  client.subscribe("len")
+  client.subscribe("len1")
 
 def getlen():
   return len
