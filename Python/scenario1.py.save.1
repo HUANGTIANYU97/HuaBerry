@@ -1,0 +1,45 @@
+import time
+import grovepi
+
+led = 5
+button = 2
+
+grovepi.pinMode(led, "OUTPUT")
+grovepi.pinMode(button, "OUTPUT")
+grovepi.ledBar_init(led,1)
+time.sleep(1)
+
+grovepi.ledBar_setLevel(led,0)
+time.sleep(3)
+
+limit = 10
+len = 1
+
+grovepi.ledBar_setBits(led, len)
+
+grovepi.digitalWrite(button,1)
+
+while(len < limit):
+	try:
+		len += 1
+		grovepi.ledBar_setBits(led, len)
+		if(len >= 8):
+			grovepi.ledBar_setLed(led, 8, 1)
+			while True:
+    try:
+        #Blink the LED
+        digitalWrite(led,1)		# Send HIGH to switch on LED
+        print ("LED ON!")
+        time.sleep(1)
+
+        digitalWrite(led,0)		# Send LOW to switch off LED
+        print ("LED OFF!")
+        time.sleep(1)
+
+		if(len >= 63):
+			grovepi.ledBar_setLed(led, 10, 1)
+		time.sleep(.5)
+	except IOError:
+		print("Error")
+
+grovepi.digitalWrite(button,0)

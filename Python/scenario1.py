@@ -1,0 +1,31 @@
+import time
+import grovepi
+
+led = 5
+button = 2
+
+grovepi.pinMode(led, "OUTPUT")
+grovepi.pinMode(button, "OUTPUT")
+time.sleep(1)
+grovepi.ledBar_init(led,1)
+time.sleep(1)
+
+grovepi.ledBar_setLevel(led,0)
+time.sleep(3)
+
+limit = 10
+len = 1
+
+grovepi.ledBar_setBits(led, len)
+
+grovepi.digitalWrite(button,1)
+
+while(len < limit):
+	try:
+		len += 1
+		grovepi.ledBar_setBits(led, len)
+		time.sleep(1)
+	except IOError:
+		print("Error")
+
+grovepi.digitalWrite(button,0)
