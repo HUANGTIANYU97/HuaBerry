@@ -20,7 +20,11 @@ def getlen():
   return len
 
 def get():
+<<<<<<< HEAD
     #publish.single("button", payload="buttonGet", qos=0, hostname="172.20.10.8")
+=======
+    publish.single("button", payload="buttonGet", qos=0, hostname="172.20.10.8")
+>>>>>>> 78cfde47012e136693cba3a7ba1297b263696fa7
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
