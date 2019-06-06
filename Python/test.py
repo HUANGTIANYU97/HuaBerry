@@ -40,10 +40,9 @@ while True:
                         else:
                                 while(grovepi.digitalRead(buttoninput) == 0):
                                         time.sleep(.01)
-				if(test_back.getlen() > 0):
-                                	test_back_del.delete()
-					test_back.get()
-                                	len = test_back.getlen()
+                                test_back_del.delete()
+				test_back.get()
+                                len = test_back.getlen()
 
                         grovepi.ledBar_setLevel(led, len)
                         if(len <= 3):
