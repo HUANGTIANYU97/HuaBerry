@@ -1,8 +1,6 @@
-import urllib
-from urlparse import urlparse
+import paho.mqtt.publish as publish
 
 def add():
-	data = bytes(urllib.urlencode(''))
-	response = urllib.urlopen('http://172.20.10.9:9400/api/clients/add',data=data)
-	print(response.read())
+  publish.single("button", payload="buttonAdd", qos=0, hostname="172.20.10.8")
+
 add()
