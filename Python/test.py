@@ -18,15 +18,16 @@ grovepi.ledBar_init(led,1)
 grovepi.ledBar_setLevel(led,0)
 #time.sleep(3)
 
-limit = 31
+#limit = 31
+limit = 7
 len = test_back.get()
-grovepi.ledBar_setBits(led, len)
+grovepi.ledBar_setLevel(led, len)
 grovepi.digitalWrite(button,1)
-if(len >= 8 and len <16):
+if(len <= 3):
 	grovepi.ledBar_setLed(led,8,1)
-if(len >= 16 and len < 31):
+elif(len <= 6):
 	grovepi.ledBar_setLed(led,9,1)
-if(len ==  31):
+else:
 	grovepi.ledBar_setLed(led,10,1)
 	grovepi.digitalWrite(button,0)
 
@@ -48,10 +49,10 @@ while True:
 				else:
 					test_back_del.delete()
 					len = test_back.get()
-                        grovepi.ledBar_setBits(led, len)
-                        if(len >= 8 and len <16):
+                        grovepi.ledBar_setLevel(led, len)
+                        if(len <= 3):
                                 grovepi.ledBar_setLed(led,8,1)
-                                countNumber = 0
+                                '''countNumber = 0
                                 while(countNumber < 2):
                                         try:
                                                 grovepi.digitalWrite(button,0)
@@ -64,10 +65,10 @@ while True:
                                         except KeyboardInterrupt:
                                                 grovepi.digitalWrite(button,0)
                                                 grovepi.ledBar_setBits(led,0)
-                                                break
-                        if(len >= 16 and len < 31):
+                                                break'''
+                        elif(len <= 6):
                                 grovepi.ledBar_setLed(led,9,1)
-                                countNumber = 0
+                                '''countNumber = 0
                                 while(countNumber < 2):
                                         try:
                                                 grovepi.digitalWrite(button,0)
@@ -80,8 +81,8 @@ while True:
                                         except KeyboardInterrupt:
                                                 grovepi.digitalWrite(button,0)
                                                 grovepi.ledBar_setBits(led,0)
-                                                break
-                        if(len ==  31):
+                                                break'''
+                        else:
                                 grovepi.ledBar_setLed(led,10,1)
                                 grovepi.digitalWrite(button,0)
                         time.sleep(.5)
