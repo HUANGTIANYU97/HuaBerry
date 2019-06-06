@@ -1,3 +1,5 @@
 import paho.mqtt.publish as publish
 
-publish.single("serial", payload="hello world!",qos=0, hostname="localhost")
+
+
+publish.single("topic/state", payload="cty!",qos=0, hostname="172.20.10.8")
